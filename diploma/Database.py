@@ -50,10 +50,13 @@ class Database:
             print(f'File {file_path} not found.')
 
     def create_people(self, data) :
-        person_list = []
-        for item in data :
-            person_list.append(Person(item[0], item[5], item[3], item[1], item[2], item[4]))
-        return person_list
+        return [Person( item[0], # first_name
+                        item[5], # gender
+                        item[3], # birth_date
+                        item[1], # last_name
+                        item[2], # middle_name
+                        item[4]) # death_date
+                        for item in data]
 
     def show_people(self, people) :
         for person in people :
